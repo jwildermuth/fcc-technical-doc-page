@@ -71,7 +71,8 @@
   <span class="text-orange">.container</span> {
       display: flex;
       /* or inline-flex */
-  }</code>
+  }
+  </code>
 </pre>
             </div>
 
@@ -162,10 +163,7 @@
 <pre>
   <code>
   <span class="text-orange">.container</span> {
-    align-items: stretch | flex-start | flex-end |
-      center | baseline | first baseline |
-      last baseline | start | end | self-start |
-      self-end + ... safe | unsafe;
+    align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
   }
   </code>
 </pre>
@@ -195,28 +193,97 @@
             </div>
           </section>
 
-          <section class="main-section" id="prefixing_flexbox">
-            <header><h2>Prefixing Flexbox</h2></header>
-            <p>Flexbox requires some vendor prefixing to support the most browsers possible. It doesn’t just include prepending properties with the vendor prefix, but there are actually entirely different property and value names. This is because the Flexbox spec has changed over time, creating an “old”, “tweener”, and “new” versions.</p>
-            <p>Perhaps the best way to handle this is to write in the new (and final) syntax and run your CSS through Autoprefixer, which handles the fallbacks very well.</p>
-            <p>Alternatively, here’s a Sass @mixin to help with some of the prefixing, which also gives you an idea of what kind of things need to be done:</p>
-            <code>code ehre...</code>
-          </section>
+
+            <section class="main-section" id="prefixing_flexbox">
+              <header><h2>Prefixing Flexbox</h2></header>
+              <p>Flexbox requires some vendor prefixing to support the most browsers possible. It doesn’t just include prepending properties with the vendor prefix, but there are actually entirely different property and value names. This is because the Flexbox spec has changed over time, creating an “old”, “tweener”, and “new” versions.</p>
+              <p>Perhaps the best way to handle this is to write in the new (and final) syntax and run your CSS through Autoprefixer, which handles the fallbacks very well.</p>
+              <p>Alternatively, here’s a Sass @mixin to help with some of the prefixing, which also gives you an idea of what kind of things need to be done:</p>
+<pre>
+  <code>
+    @mixin <span class="text-orange">flexbox</span>() {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    @mixin <span class="text-orange">flex</span>($values) {
+      -webkit-box-flex: $values;
+      -moz-box-flex:  $values;
+      -webkit-flex:  $values;
+      -ms-flex:  $values;
+      flex:  $values;
+    }
+
+    @mixin <span class="text-orange">order</span>($val) {
+      -webkit-box-ordinal-group: $val;
+      -moz-box-ordinal-group: $val;
+      -ms-flex-order: $val;
+      -webkit-order: $val;
+      order: $val;
+    }
+
+    <span class="text-orange">.wrapper</span> {
+      @include flexbox();
+    }
+
+    <span class="text-orange">.item</span> {
+      @include flex(1 200px);
+      @include order(2);
+    }
+  </code>
+</pre>
+            </section>
+
+
 
           <section class="main-section" id="examples">
             <header><h2>Examples</h2></header>
             <p>Let’s start with a very very simple example, solving an almost daily problem: perfect centering. It couldn’t be any simpler if you use flexbox.</p>
-            <code>code here</code>
+<pre>
+  <code>
+  <span class="text-orange">.parent</span> {
+    display: flex;
+    height: 300px; /* Or whatever */
+  }
+
+  <span class="text-orange">.child</span> {
+    width: 100px;  /* Or whatever */
+    height: 100px; /* Or whatever */
+    margin: auto;  /* Magic! */
+  }
+  </code>
+</pre>
             <p>This relies on the fact a margin set to auto in a flex container absorb extra space. So setting a margin of auto will make the item perfectly centered in both axes.</p>
             <p>Now let’s use some more properties. Consider a list of 6 items, all with fixed dimensions, but can be auto-sized. We want them to be evenly distributed on the horizontal axis so that when we resize the browser, everything scales nicely, and without media queries.</p>
-            <code>code hererewrfewfa.....</code>
+<pre>
+  <code>
+  <span class="text-orange">.flex-container</span> {
+    /* We first create a flex layout context */
+    display: flex;
+
+    /* Then we define the flow direction
+       and if we allow the items to wrap
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+    flex-flow: row wrap;
+
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+  }
+  </code>
+</pre>
           </section>
         </main>
       </div>
     </div>
 
     <footer>
-      All content provided by css-tricks.com
+      <p class="text-center">All content provided by css-tricks.com</p>
     </footer>
     <!-- <script type="text/javascript" src="script.js"></script> -->
   </body>
