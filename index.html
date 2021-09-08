@@ -16,8 +16,12 @@
       <div class="flex-main">
         <div class="nav-wrapper">
           <nav id="navbar">
-            <header><h1 class="text-center">A Guide to Flexbox</h1></header>
-            <ul>
+            <header>
+              <a class="home-link" href="#">
+                <h1 class="text-center">A Guide to Flexbox</h1>
+              </a>
+            </header>
+            <ul class="nav-list">
                 <a href="#background"
                    class="nav-link">Background</a>
                 <a href="#basics_and_terminology"
@@ -29,6 +33,14 @@
                 <a href="#examples"
                    class="nav-link">Examples</a>
             </ul>
+
+            <!-- Hamburger Menu -->
+            <div class="burger-wrapper">
+              <span class="burger-span"></span>
+              <span class="burger-span"></span>
+              <span class="burger-span"></span>
+            </div>
+            <input type="checkbox" class="burger-toggle">
           </nav>
         </div>
 
@@ -84,8 +96,7 @@
 <pre>
   <code>
   <span class="text-orange">.container</span> {
-    flex-direction: row | row-reverse |
-      column | column-reverse;
+    flex-direction: row | row-reverse | column | column-reverse;
   }
   </code>
 </pre>
@@ -137,8 +148,8 @@
   <code>
   <span class="text-orange">.container</span> {
     justify-content: flex-start | flex-end | center |
-      space-between | space-around | space-evenly |
-      start | end | left | right ... + safe | unsafe;
+    space-between |  space-around | space-evenly |
+    start | end | left | right ... + safe | unsafe;
   }
   </code>
 </pre>
@@ -163,7 +174,9 @@
 <pre>
   <code>
   <span class="text-orange">.container</span> {
-    align-items: stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
+    align-items: stretch | flex-start | flex-end | center |
+    baseline | first baseline | last baseline | start |
+    end | self-start | self-end + ... safe | unsafe;
   }
   </code>
 </pre>
@@ -262,6 +275,7 @@
   <code>
   <span class="text-orange">.flex-container</span> {
     /* We first create a flex layout context */
+
     display: flex;
 
     /* Then we define the flow direction
@@ -270,9 +284,11 @@
      * flex-direction: row;
      * flex-wrap: wrap;
      */
+
     flex-flow: row wrap;
 
     /* Then we define how is distributed the remaining space */
+
     justify-content: space-around;
   }
   </code>

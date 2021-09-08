@@ -7,39 +7,69 @@
 }
 
 
-/* =================
-      Layout
-================= */
-.flex-main {
-  display: flex;
-}
-
+/*  ------------------------    layout   ---------------------   */
+/*  ----------------------------------------------------------   */
 .nav-wrapper {
-  display: none;
   position: relative;
   border-right: 3px solid #666;
 }
 
-
-
 #main-doc {
-  width: min(90%, 70rem);
-  margin: 1rem auto;
+  width: min(95%, 70rem);
+  margin: 8rem auto;
+  overflow: hidden;
 }
 
 
-/* Navbar */
+/*  ---------------    navbar   ------------   */
 #navbar {
-  min-width: 22rem;
-  position: sticky;
+  /* min-width: 20rem; */
+  /* position: sticky; */
+  /* border: 3px dashed darkorange; */
+  width: 100%;
   top: 0px;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #navbar header {
-  padding: 3rem 1.5rem;
+  height: 100%;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
-#navbar a {
+.home-link {
+  display: block;
+  margin: 0 auto;
+}
+
+.burger-wrapper {
+  width: 5rem;
+}
+
+.burger-span {
+  display: block;
+  background-color: #e7dac7;
+  border-radius: 8px;
+  margin: 8px auto;
+  height: 5px;
+  width: 60%;
+}
+
+.burger-toggle {
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  right: 0;
+  opacity: 0.2;
+}
+
+.nav-list {
+  display: none;
+}
+
+.nav-link {
   display: block;
   padding: 1rem;
   border-bottom: 1px solid #000;
@@ -50,7 +80,7 @@ h1 {
 }
 
 
-/* Main */
+/*  ---------------    main   ------------   */
 section {
   margin: 3rem 0;
 }
@@ -61,18 +91,15 @@ section > * {
 
 .card {
   margin: 4rem 2rem;
-/*   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0px 0px 22px 5px #000; */
 }
 
 .card > * {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 pre {
   border-radius: 10px;
-  /* max-width: 95%; */
+  max-width: 95%;
   margin: 0 auto;
 }
 
@@ -84,6 +111,7 @@ li {
 img {
   display: block;
   margin: 0 auto;
+  max-width: min(65%, 22rem);
 }
 
 footer {
@@ -92,28 +120,36 @@ footer {
 
 
 
+/*  ---------------    media query   ------------   */
 
+@media (min-width: 40rem) {
+/*   #navbar header {
+    padding: 3rem 1.5rem;
+  } */
 
-@media (min-width: 36rem) {
-  img {
-    max-width: 70%;
+  .card {
+    margin: 4rem 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 0px 22px 5px #000; */
   }
 }
 
+@media (min-width: 68rem) {
+  .flex-main {
+    display: flex;
+  }
 
-
-
-
-@media (min-width: 70rem) {
-  .nav-wrapper {
+  .nav-list {
     display: block;
+  }
+
+  #main-doc {
+    margin: 1rem 2rem;
   }
 
   .card {
     margin: 4rem 2rem;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0px 0px 22px 5px #000; */
   }
 
   .card > * {
@@ -122,12 +158,8 @@ footer {
 }
 
 
-
-
-
-/* =================
-Typography
-================= */
+/*  ------------------------    typography   ---------------------   */
+/*  --------------------------------------------------------------   */
 body {
   font-size: 1.3125rem;
   font-family: 'Urbanist', sans-serif;
@@ -144,6 +176,11 @@ h1 {
   font-weight: normal;
   text-transform: uppercase;
   border: 2px solid #937047;
+  color: #e7dac7;
+}
+
+.home-link {
+  text-decoration: none;
 }
 
 h4 {
@@ -163,42 +200,34 @@ h4 {
   color: orange;
 }
 
-#navbar li {
-  list-style: none;
-}
-
-#navbar a {
-  text-decoration: none;
-}
-
 pre {
-  white-space: pre-wrap;
+  overflow: auto;
 }
 
 code {
   font-size: 1.25rem;
 }
 
-/* =================
-Color
-================= */
+
+/*  ------------------------    color   ---------------------   */
+/*  ----------------------------------------------------------   */
 body {
   background-color: #fcfcfc;
   color: #141516;
 }
 
-
-#navbar a {
-  color: #141516;
-}
-
-#navbar header,
+#navbar,
 footer {
   background-color: #241f1c;
   color: #e7dac7;
 }
 
-#navbar a:hover {
+.nav-link {
+  text-decoration: none;
+  color: #141516;
+}
+
+.nav-link:hover {
   background-color: #eee;
 }
 
