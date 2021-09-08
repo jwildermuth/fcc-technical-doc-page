@@ -16,7 +16,7 @@
 
 #main-doc {
   width: min(95%, 70rem);
-  margin: 8rem auto;
+  margin: 10rem auto;
   overflow: hidden;
 }
 
@@ -25,7 +25,6 @@
 #navbar {
   /* min-width: 20rem; */
   /* position: sticky; */
-  /* border: 3px dashed darkorange; */
   width: 100%;
   top: 0px;
   position: fixed;
@@ -57,18 +56,6 @@
   width: 60%;
 }
 
-.burger-toggle {
-  height: 5rem;
-  width: 5rem;
-  position: fixed;
-  right: 0;
-  opacity: 0.2;
-}
-
-.nav-list {
-  display: none;
-}
-
 .nav-link {
   display: block;
   padding: 1rem;
@@ -76,8 +63,32 @@
 }
 
 h1 {
-  padding: 0.5rem;
+  padding: 1rem;
 }
+
+
+/*  -------------   hamburger toggle  ------------   */
+.nav-list {
+  position: absolute;
+  right: 200px;
+  top: 100%;
+  right: 1000px;
+  transition: all .3s ease-in-out;
+}
+
+.burger-toggle {
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  right: 0;
+  opacity: 0;
+}
+
+.burger-toggle:checked ~ ul {
+  right: 0;
+}
+
+
 
 
 /*  ---------------    main   ------------   */
@@ -176,11 +187,11 @@ h1 {
   font-weight: normal;
   text-transform: uppercase;
   border: 2px solid #937047;
-  color: #e7dac7;
 }
 
 .home-link {
   text-decoration: none;
+  color: #e7dac7;
 }
 
 h4 {
@@ -217,18 +228,18 @@ body {
 }
 
 #navbar,
-footer {
+footer,
+.nav-link {
   background-color: #241f1c;
   color: #e7dac7;
 }
 
 .nav-link {
   text-decoration: none;
-  color: #141516;
 }
 
 .nav-link:hover {
-  background-color: #eee;
+  background-color: #504C49;
 }
 
 h2,
