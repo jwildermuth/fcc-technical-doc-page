@@ -65,7 +65,7 @@ h1 {
 }
 
 
-/*  -------------   hamburger toggle  ------------   */
+/*  -------------   hamburger  ------------   */
 .nav-list {
   position: absolute;
   right: 200px;
@@ -93,10 +93,6 @@ h1 {
 section {
   margin: 3rem 0;
 }
-
-/* .main-section {
-  scroll-margin-top: 8rem;
-} */
 
 section > * {
   margin: 2rem 1rem;
@@ -170,10 +166,6 @@ footer {
     border-right: 2px solid #000
   }
 
-
-
-
-
   .flex-main {
     display: flex;
   }
@@ -195,6 +187,16 @@ footer {
     margin-bottom: 3rem;
   }
 }
+
+@media (max-width: 68rem) {
+  .main-section {
+    scroll-margin-top: 8rem;
+  }
+}
+
+
+
+
 
 
 /*  ------------------------    typography   ---------------------   */
